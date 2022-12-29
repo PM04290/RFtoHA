@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet" title="main">
+	<link href="css/bootstrap-icons.css" rel="stylesheet">
+	<link href="css/mytheme.css" rel="stylesheet">
+	<link rel='icon' href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAACdElEQVRYhe2VPWtUQRSGnzN3NzYWftyb1QgWgk0MiJ1gbIyNKIqlSKzS2YoaJdfhCsZOROys4g8QtLBKDEREO0GxV0ww2auxNe6cY5HdZTd+7EeypDBvNffMcN7nzMy5A1v63yW1gXn61OLbGKPA3h75LYA8dq6cimcFoFCbUU0ysKs9Mq5pAOyaWmJQHm8CABsFcM4dE7/0qhfu5pNhVZvD7BIwDuCa6aBX5qu5yy8bvdYCtCUDCWlsIY11I6AKrZeA+Z37LUQPpFIYY/JL3jR3o79kkT6SKFwWv/ypNwAhemjCGSv+nHa+dBINdXMt6AwwSIgUONcpQFtHIMGNAR9ADlYIg1GWS5TlrtIXDgEHwN5JpTDWqXn7AHeWFl3FnVBnp4s+n63Fi/7rjDpOuZ/FEZn8Uu4GoOURhDQ2AEWt6L+6xliU5VL0+WxIYw1pLLVYJwAdd8FGq+UOtFNRlOVdF7LuHaj+E2zTANYL07M70C7Mpl/CtgHMxwPmS/0bDdDYBQvAgPlkuOHVqpur8gJ0xXxpRKu/YmjuklYdYxPJccUA5n8HEJnC7LqqzYU0BvhhyPlCVn4OUQV0BWxINcx0U2lIY6uaAzJVi9ePwEn5FiJ3Wd0JgG2CPamkySnxi0vOuRGQ98ChVmZ2c/e+6vA7gPlke/V7HmTSubKv191JFeZL/ao6DTYE4JwcEV9+u3ZdSOMJIBN45rL87L9ydgTwB4iPZnI1itwsC4vLJLv2qJOLiGRApI6RxsdrQwAAbHxPEorhqWBH/7JEgStRlt9rlasrAADzFEJILjnsggmHgR3AZ4Q3TvS++G+vu829pf9LvwANQwi02IvcFQAAAABJRU5ErkJggg==' type='image/x-png' />
+	<script src="js/lora2ha.js"></script>
+	<title>LoRa2HA</title>
+</head>
+<body>
+	<main>
+	<div class="py-1 text-center">
+      <h2>LoRa2HA</h2>
+	</div>
+	<FORM action="/doconfig" id="formconf" role="form">
+		<input type="hidden" name="cnf" value="conf">
+		<div class="row mb-3 bs-callout bs-callout-info p-1">
+			<h4>Devices</h4>
+			<!--%GENHTMLDEV%-->
+			<div class="col-md-12 pt-2">
+				<button type="submit" class="btn btn-primary bi-upload">&nbsp;Valide</button>
+				<span class="bg-success" style="opacity: 0" id="resultconf"><strong>Enregistr&eacute;!</strong></span>
+			</div>
+		</div>
+	</FORM>
+
+	<!-- WIFI -->
+	<FORM action="/doconfig" id="formwifi" role="form">
+		<div class="row mb-3 bs-callout bs-callout-warning p-1">
+            <h4>WIFI / MQTT&nbsp;<small class="text-muted">MAC:%CNFMAC%</small></h4>
+			<input type="hidden" name="cnf" value="wifi">
+			<div class="col-md-12 mb-2 row">
+				<div class="form-group col-sm-1">
+					<div class="input-group">
+					  <span class="input-group-text" id="cnf_code">Code</span>
+					  <input type="number" class="form-control" aria-describedby="cnf_code" name="CODE" min="0" max="9" value="%CNFCODE%">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 mb-2">
+				<div class="input-group">
+				  <span class="input-group-text" id="cnf_ssid">SSID</span>
+				  <input type="text" class="form-control" aria-describedby="cnf_ssid" name="SSID" value="%CNFSSID%">
+				</div>
+			</div>
+			<div class="col-md-6 mb-2">
+				<div class="input-group">
+				  <span class="input-group-text" id="cnf_pwd">Password</span>
+				  <input type="text" class="form-control" aria-describedby="cnf_pwd" name="PWD" value="%CNFPWD%">
+				</div>
+			</div>
+			<div class="col-md-4 mb-2">
+				<div class="input-group">
+				  <span class="input-group-text" id="cnf_mqttserver">Serveur MQTT</span>
+				  <input type="text" class="form-control" aria-describedby="cnf_mqttserver" name="MQTTSRV" value="%CNFMQTTSRV%">
+				</div>
+			</div>
+			<div class="col-md-4 mb-2">
+				<div class="input-group">
+				  <span class="input-group-text" id="cnf_mqttuser">User MQTT</span>
+				  <input type="text" class="form-control" aria-describedby="cnf_mqttuser" name="MQTTUSER" value="%CNFMQTTUSER%">
+				</div>
+			</div>
+			<div class="col-md-4 mb-2">
+				<div class="input-group">
+				  <span class="input-group-text" id="cnf_mqttpass">Password MQTT</span>
+				  <input type="text" class="form-control" aria-describedby="cnf_mqttpass" name="MQTTPASS" value="%CNFMQTTPASS%">
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-primary bi-upload">&nbsp;Valide</button>
+				<span class="bg-success" style="opacity: 0" id="resultwifi"><strong>Enregistr&eacute;!</strong></span>
+			</div>
+		</div>
+	</FORM>
+	<FORM method='POST' action='/doupdate' enctype='multipart/form-data'>
+		<div class="row mb-3 bs-callout bs-callout-danger p-1">
+            <h4>Mise à jour Firmware</h4>
+			<div class="mb-3">
+				<label for="formBinSm" class="form-label">Sélectionnez le fichier .bin à télécharger</label>
+				<input class="form-control form-control-sm" id="formBinSm" type="file" name='update'>
+			</div>			
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-primary bi-upload">&nbsp;Lancer</button>
+				<span class="bg-success" style="opacity: 0" id="resultupdate"><strong>Enregistr&eacute;!</strong></span>
+			</div>
+		</div>
+	</form>
+	<FORM method='POST' action='/dofile' enctype='multipart/form-data'>
+		<div class="row mb-3 bs-callout bs-callout-danger p-1">
+            <h4>Mise à jour fichier</h4>
+			<div class="mb-3">
+				<label for="formFileSm" class="form-label">Sélectionnez le fichier à télécharger (config ou images)</label>
+				<input class="form-control form-control-sm" id="formFileSm" type="file" name='update'>
+			</div>			
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-primary bi-upload">&nbsp;Lancer</button>
+				<span class="bg-success" style="opacity: 0" id="resultupdate"><strong>Enregistr&eacute;!</strong></span>
+			</div>
+		</div>
+	</form>
+	<a href="/config.json" class="btn btn-success bi-download" download>&nbsp;Télécharger config</a>
+	<button type="button" class="btn btn-danger bi-power float-end" onclick="$.get('/restart');">&nbsp;Reset</button>
+	</main>
+<script>
+  window.addEventListener('load', onLoad);
+</script>
+</body>
+</html>
