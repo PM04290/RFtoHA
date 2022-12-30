@@ -10,19 +10,31 @@
             {
                "id":1,
                "label":"PuissApp",
-               "sensortype":3,
+               "sensortype":1,
                "datatype":1
             },
             {
                "id":2,
                "label":"Consommation",
-               "sensortype":3,
+               "sensortype":1,
                "datatype":1
             },
             {
                "id":3,
                "label":"Iinst",
-               "sensortype":3,
+               "sensortype":1,
+               "datatype":2
+            },
+            {
+               "id":4,
+               "label":"Iinst2",
+               "sensortype":1,
+               "datatype":2
+            },
+            {
+               "id":5,
+               "label":"Iinst3",
+               "sensortype":1,
                "datatype":2
             }
          ]
@@ -40,13 +52,13 @@
             {
                "id":2,
                "label":"Ouverture",
-               "sensortype":1,
+               "sensortype":2,
                "datatype":0
             },
             {
                "id":3,
                "label":"Trigger",
-               "sensortype":4,
+               "sensortype":8,
                "datatype":1
             }
 		 ]
